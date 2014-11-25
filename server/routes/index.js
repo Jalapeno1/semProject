@@ -68,8 +68,17 @@ router.get('/partials/:partialName', function(req, res) {
     res.render('partials/' + name);
 });
 
+router.get('/test/allMovies/:user', function(req, res) {
+    facade.getAllTitles(req.params.user, function(err, data){
+        if(err)
+            res.send(err);
+        else
+            res.end(JSON.stringify(data));
+    })
+});
+
 router.post('/test/addtitle', function (req, res) {
-    facade.addTitle("test", "123", "www.url.com", "Drama",
+    facade.addTitle("autoAdd", "123", "www.url.com", "Drama",
         9, "666min", "YAY!", 2014, function(err, data){
             if(err)
                 res.send(err);

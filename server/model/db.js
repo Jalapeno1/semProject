@@ -21,7 +21,7 @@ if( typeof global.TEST_DATABASE != "undefined" ) {
   dbURI = global.TEST_DATABASE;
 }
 else{
-  dbURI = 'mongodb://test:test@ds049160.mongolab.com:49160/mytestdata';
+  dbURI = 'mongodb://test:test@ds047050.mongolab.com:47050/mydatabase';
 }
 
 mongoose.connect(dbURI);

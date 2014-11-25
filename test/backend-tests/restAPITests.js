@@ -1,4 +1,4 @@
-global.TEST_DATABASE = "mongodb://test:test@ds049160.mongolab.com:49160/mytestdata";
+global.TEST_DATABASE = "mongodb://test:test@ds047050.mongolab.com:47050/mydatabase";
 global.SKIP_AUTHENTICATION = true;  //Skip security
 
 var should = require("should");
@@ -7,9 +7,11 @@ var http = require("http");
 var testPort = 3535;
 var testServer;
 var mongoose = require("mongoose");
+var assert = require("assert");
+
+
 var User = mongoose.model("User");
 var Movies = mongoose.model("Movies");
-var facade = require("../../server/model/facade")
 
 describe('REST API for /user', function () {
   //Start the Server before the TESTS
@@ -25,12 +27,33 @@ describe('REST API for /user', function () {
   })
 
   beforeEach(function(done){
-    User.remove({}, function ()
+    Movies.remove({}, function ()
     {
-      var array = [{userName : "Lars", email :"lars@a.dk",pw: "xxx"},{userName : "Henrik", email :"henrik@a.dk",pw: "xxx"}];
+      //var array = [{userName : "Lars", email :"lars@a.dk",pw: "xxx"},{userName : "Henrik", email :"henrik@a.dk",pw: "xxx"}];
 
       var movies =
         [{userName: "test",
+          moviesOwned: [{
+            id: "123",
+            imdbURL: "www.url.com",
+            genre: "Comedy",
+            imdbRating: 9,
+            userRating: 0,
+            runtime: "213min",
+            title: "The Test Movie",
+            year: 2014
+          },
+          {
+            id: "999",
+            imdbURL: "www.url2.com",
+            genre: "Horror",
+            imdbRating: 10,
+            userRating: 0,
+            runtime: "90min",
+            title: "Sem Project",
+            year: 2012
+          }]
+        },{userName: "testToDelete",
           moviesOwned: [{
             id: "123",
             imdbURL: "www.url.com",
@@ -54,10 +77,8 @@ describe('REST API for /user', function () {
           }]
         }];
 
-      User.create(array,function(err){
-        Movies.create(movies, function(err){
-          done();
-        });
+      Movies.create(movies, function(err){
+        done();
       });
     });
   });
@@ -68,29 +89,51 @@ describe('REST API for /user', function () {
     testServer.close();
   })
 
-  it("Should get 2 users; Lars and Henrik", function (done) {
-    http.get("http://localhost:"+testPort+"/adminApi/user",function(res){
+  //RETURNS ALL MOVIES AND DETAILS
+  it("Should get user test's movie collection.", function (done) {
+    var testUser = 'test';
+    http.get("http://localhost:"+testPort+"/test/allMovies/"+testUser,function(res){
       res.setEncoding("utf8");//response data is now a string
       res.on("data",function(chunk){
         var n = JSON.parse(chunk);
-        n.length.should.equal(2);
-        n[0].userName.should.equal("Lars");
-        n[1].userName.should.equal("Henrik");
+        n.length.should.equal(1);
+        n[0].userName.should.equal("test");
         done();
       });
-    })
+    });
   });
 
-  //it("Should get 2 movies; The Test Movie and Sem Project", function (done) {
-  //  http.get("http://localhost:"+testPort+"/adminApi/user",function(res){
+  //it("Should get user test's movie collection.", function (done) {
+  //  http.post("http://localhost:"+testPort+"/test/addtitle",function(res){
   //    res.setEncoding("utf8");//response data is now a string
-  //    res.on("data",function(chunk){
-  //      var n = JSON.parse(chunk);
-  //      n.length.should.equal(2);
-  //      n[0].userName.should.equal("Lars");
-  //      n[1].userName.should.equal("Henrik");
+  //    res.send(200, {ok: 'ok'});
   //      done();
   //    });
-  //  })
   //});
+
+  it("Should get user test's movie collection.", function (done) {
+    var testUser = 'test';
+    var testId = '123';
+    http.get("http://localhost:"+testPort+"/test/movie/"+testUser+"/"+testId,function(res){
+      res.setEncoding("utf8");//response data is now a string
+      res.on("data",function(chunk){
+        var n = JSON.parse(chunk);
+        n.length.should.equal(1);
+        assert.equal(null, n[0].moviesOwned.genre)
+        //n[0].moviesOwned.genre.should.equal("Comedy");
+        done();
+      });
+    });
+  });
+
+  //it("Should get user test's movie collection.", function (done) {
+  //  var testUser = 'test';
+  //  var testId = '123';
+  //  http.delete("http://localhost:"+testPort+"/test/movie/"+testUser+"/"+testId,function(e, res){
+  //    res.setEncoding("utf8");//response data is now a string
+  //    done();
+  //  });
+  //});
+
+
 });

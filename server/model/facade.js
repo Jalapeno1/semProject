@@ -23,7 +23,7 @@ function adminLogin(userName, password, callback){};
 
 // Returns all titles
 function getAllTitles (username, callback){
-    movie.find({userName: username}, function(err, reasult){
+    movie.find({userName: username}, function(err, result){
         if(err)
             callback(err);
         else
@@ -52,12 +52,12 @@ function addTitle (userName, movId, imdbURL, genre, imdbRating,
 };
 
 function getDetails (userName, movieId, callback){
-    //movie.find({userName: userName}).where({'moviesOwned.id': movieId}).exec(function(err, result){
-    //    if(err)
-    //        callback(err);
-    //    else
-    //        callback(null, result);
-    //});
+    movie.find({userName: userName}).where({'moviesOwned.id': movieId}).exec(function(err, result){
+        if(err)
+            callback(err);
+        else
+            callback(null, result);
+    });
 
     movie.find({'moviesOwned.id': movieId}).where({userName: userName}).exec(function(err, result){
         if(err)
