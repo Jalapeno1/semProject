@@ -38,6 +38,7 @@ function addTitle (userName, movId, imdbURL, genre, imdbRating,
         imdbURL: imdbURL,
         genre: genre,
         imdbRating: imdbRating,
+        userRating: 0,
         runtime: runtime,
         title: title,
         year: year
@@ -50,11 +51,34 @@ function addTitle (userName, movId, imdbURL, genre, imdbRating,
     });
 };
 
-function getDetails (movId, callback){};
+function getDetails (userName, movieId, callback){
+    //movie.find({userName: userName}).where({'moviesOwned.id': movieId}).exec(function(err, result){
+    //    if(err)
+    //        callback(err);
+    //    else
+    //        callback(null, result);
+    //});
 
-function deleteTitle (movId, callback){};
+    movie.find({'moviesOwned.id': movieId}).where({userName: userName}).exec(function(err, result){
+        if(err)
+            callback(err);
+        else
+            callback(null, result);
+    });
+};
 
-function rateTitle (movId, startCount, callback){};
+function deleteTitle (userName, movieId, callback){
+    movie.update({userName: userName}, {$pull: {moviesOwned: {id: movieId}}}).exec(function(err, result){
+        if(err)
+            callback(err);
+        else
+            callback(null, result);
+    });
+};
+
+function rateTitle (movId, starCount, callback){
+
+};
 
 module.exports = {
     userLogin: userLogin,

@@ -76,6 +76,24 @@ router.post('/test/addtitle', function (req, res) {
             else
                 res.end(JSON.stringify(data));
         });
-})
+});
+
+router.get('/test/movie/:user/:id', function(req, res) {
+    facade.getDetails(req.params.user, req.params.id, function(err, data){
+        if(err)
+            res.send(err);
+        else
+            res.end(JSON.stringify(data));
+    })
+});
+
+router.delete('/test/movie/:user/:id', function(req, res) {
+    facade.deleteTitle(req.params.user, req.params.id, function(err, data){
+        if(err)
+            res.send(err);
+        else
+            res.end(JSON.stringify(data));
+    })
+});
 
 module.exports = router;

@@ -4,7 +4,7 @@ global.SKIP_AUTHENTICATION = true;  //Skip security
 var should = require("should");
 var app = require("../../server/app");
 var http = require("http");
-var testPort = 9999;
+var testPort = 3535;
 var testServer;
 var mongoose = require("mongoose");
 var User = mongoose.model("User");
@@ -36,20 +36,22 @@ describe('REST API for /user', function () {
             imdbURL: "www.url.com",
             genre: "Comedy",
             imdbRating: 9,
+            userRating: 0,
             runtime: "213min",
             title: "The Test Movie",
             year: 2014
           },
 
-            {
-              id: "132",
-              imdbURL: "www.url2.com",
-              genre: "Horro",
-              imdbRating: 10,
-              runtime: "90min",
-              title: "Sem Project",
-              year: 2012
-            }]
+          {
+            id: "999",
+            imdbURL: "www.url2.com",
+            genre: "Horror",
+            imdbRating: 10,
+            userRating: 0,
+            runtime: "90min",
+            title: "Sem Project",
+            year: 2012
+          }]
         }];
 
       User.create(array,function(err){
