@@ -21,7 +21,7 @@ if( typeof global.TEST_DATABASE != "undefined" ) {
   dbURI = global.TEST_DATABASE;
 }
 else{
-  dbURI = 'mongodb://localhost/testdb';
+  dbURI = 'mongodb://test:test@ds049160.mongolab.com:49160/mytestdata';
 }
 
 mongoose.connect(dbURI);
@@ -52,9 +52,30 @@ process.on('SIGINT', function() {
 var usersSchema = new mongoose.Schema({
   userName : String,
   email: {type: String, unique: true},
-  pw: String,
-  created: { type: Date, default: new Date() }
+  pw: String
 });
 
 mongoose.model( 'User', usersSchema,"testusers" );
 
+var adminsSchema = new mongoose.Schema({
+  userName : String,
+  email: {type: String, unique: true},
+  pw: String
+});
+
+mongoose.model( 'Admin', adminsSchema,"testadmins" );
+
+var movieSchema = new mongoose.Schema({
+  userName: String,
+  moviesOwned: [{
+    id: String,
+    imdbURL: String,
+    genre: String,
+    imdbRating: Number,
+    runtime: String,
+    title: String,
+    year: Number
+  }]
+});
+
+mongoose.model( 'Movies', movieSchema,"movies" );
