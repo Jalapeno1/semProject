@@ -51,20 +51,21 @@ function addTitle (userName, movId, imdbURL, genre, imdbRating,
     });
 };
 
-function getDetails (userName, movieId, callback){
-    movie.find({userName: userName}).where({'moviesOwned.id': movieId}).exec(function(err, result){
+function getDetails (user, movieId, callback){
+
+    movie.find({$and: [{userName: user}, {$in: {moviesOwned: movieId}}]}).exec(function(err, result){
         if(err)
             callback(err);
         else
             callback(null, result);
     });
 
-    movie.find({'moviesOwned.id': movieId}).where({userName: userName}).exec(function(err, result){
-        if(err)
-            callback(err);
-        else
-            callback(null, result);
-    });
+    //movie.find({'moviesOwned.id': movieId}).where({userName: user}).exec(function(err, result){
+    //    if(err)
+    //        callback(err);
+    //    else
+    //        callback(null, result);
+    //});
 };
 
 function deleteTitle (userName, movieId, callback){

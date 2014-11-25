@@ -8,6 +8,7 @@ var testPort = 3535;
 var testServer;
 var mongoose = require("mongoose");
 var assert = require("assert");
+var supertest = require("supertest");
 
 
 var User = mongoose.model("User");
@@ -29,8 +30,6 @@ describe('REST API for /user', function () {
   beforeEach(function(done){
     Movies.remove({}, function ()
     {
-      //var array = [{userName : "Lars", email :"lars@a.dk",pw: "xxx"},{userName : "Henrik", email :"henrik@a.dk",pw: "xxx"}];
-
       var movies =
         [{userName: "test",
           moviesOwned: [{
@@ -103,13 +102,18 @@ describe('REST API for /user', function () {
     });
   });
 
-  //it("Should get user test's movie collection.", function (done) {
-  //  http.post("http://localhost:"+testPort+"/test/addtitle",function(res){
-  //    res.setEncoding("utf8");//response data is now a string
-  //    res.send(200, {ok: 'ok'});
-  //      done();
-  //    });
-  //});
+  it("Should get user test's movie collection.", function (done) {
+    supertest("http://localhost:"+testPort)
+        .post("/test/addtitle")
+        .expect(200)
+        .end(function (err, res) {
+          if (err)
+            return done(err);
+
+          done();
+        }
+    );
+  });
 
   it("Should get user test's movie collection.", function (done) {
     var testUser = 'test';
@@ -118,7 +122,7 @@ describe('REST API for /user', function () {
       res.setEncoding("utf8");//response data is now a string
       res.on("data",function(chunk){
         var n = JSON.parse(chunk);
-        n.length.should.equal(1);
+        n.should.have.length(1);
         assert.equal(null, n[0].moviesOwned.genre)
         //n[0].moviesOwned.genre.should.equal("Comedy");
         done();
@@ -126,14 +130,17 @@ describe('REST API for /user', function () {
     });
   });
 
-  //it("Should get user test's movie collection.", function (done) {
-  //  var testUser = 'test';
-  //  var testId = '123';
-  //  http.delete("http://localhost:"+testPort+"/test/movie/"+testUser+"/"+testId,function(e, res){
-  //    res.setEncoding("utf8");//response data is now a string
-  //    done();
-  //  });
-  //});
+  it("Should delete a movie from 'test'.", function (done) {
+    var testUser = 'testToDelete';
+    var testId = '123';
+    supertest("http://localhost:"+testPort)
+        .delete("/test/movie/"+testUser+"/"+testId)
+        .expect(200)
+        .end(function (err) {
+          if (err)
+            return done(err);
 
-
+          done();
+        });
+  });
 });
