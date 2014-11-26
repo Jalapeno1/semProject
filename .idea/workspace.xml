@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="69908405-2667-4649-a542-507a1425e5ea" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/model/facade.js" afterPath="$PROJECT_DIR$/server/model/facade.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/backend-tests/restAPITests.js" afterPath="$PROJECT_DIR$/test/backend-tests/restAPITests.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -32,8 +31,18 @@
       <file leaf-file-name="restAPITests.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/backend-tests/restAPITests.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5222222" vertical-offset="1622" max-vertical-offset="2584">
-              <caret line="112" column="17" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.6340509" vertical-offset="1869" max-vertical-offset="2584">
+              <caret line="129" column="7" selection-start-line="129" selection-start-column="7" selection-end-line="129" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="timers.js" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.WebStorm8/system/extLibs/nodejs-v0.10.32-src/core-modules-sources/lib/timers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="8296">
+              <caret line="111" column="14" selection-start-line="111" selection-start-column="14" selection-end-line="111" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -42,8 +51,8 @@
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1163" max-vertical-offset="1938">
-              <caret line="90" column="32" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1194" max-vertical-offset="1938">
+              <caret line="83" column="30" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -52,8 +61,8 @@
       <file leaf-file-name="facade.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/model/facade.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="701" max-vertical-offset="1649">
-              <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="803" max-vertical-offset="1666">
+              <caret line="68" column="7" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -96,7 +105,6 @@
     <data>C:\Users\Jonas\AppData\Roaming\npm\node_modules\mocha</data>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
     <option name="width" value="960" />
     <option name="height" value="1032" />
   </component>
@@ -123,6 +131,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -271,7 +280,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -314,10 +322,14 @@
       <ConfigurationWrapper RunnerId="Basic" />
       <method />
     </configuration>
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+      <method />
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <method />
     </configuration>
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -325,10 +337,6 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -428,7 +436,13 @@
       <option name="project" value="LOCAL" />
       <updated>1416926146073</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="End of the day commit.&#10;&#10;- Test cases updated 3 out of 4 works&#10;- getDetails method still faulty">
+      <created>1416932887277</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1416932887277</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -452,10 +466,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="0" width="960" height="1032" extended-state="0" />
+    <frame x="0" y="0" width="960" height="1032" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37810385" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988507" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -470,12 +483,13 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Heroku" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4255079" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4255079" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -495,7 +509,8 @@
     </option>
     <MESSAGE value="new repository added.&#10;&#10;interface added&#10; - Addtitle&#10; - getTitles&#10; - test added" />
     <MESSAGE value="-new methods added in facade&#10;-mocha test for backend done" />
-    <option name="LAST_COMMIT_MESSAGE" value="-new methods added in facade&#10;-mocha test for backend done" />
+    <MESSAGE value="End of the day commit.&#10;&#10;- Test cases updated 3 out of 4 works&#10;- getDetails method still faulty" />
+    <option name="LAST_COMMIT_MESSAGE" value="End of the day commit.&#10;&#10;- Test cases updated 3 out of 4 works&#10;- getDetails method still faulty" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -516,27 +531,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="100" max-vertical-offset="1139">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="544" max-vertical-offset="901">
-          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/backend-tests/restAPITests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="391">
@@ -852,30 +846,53 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.037190083" vertical-offset="67" max-vertical-offset="969">
           <caret line="5" column="23" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/model/facade.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/should/lib/assertion.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="1649">
-          <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+        <state vertical-scroll-proportion="0.33274958" vertical-offset="1714" max-vertical-offset="2584">
+          <caret line="112" column="16" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1163" max-vertical-offset="1938">
-          <caret line="90" column="32" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1194" max-vertical-offset="1938">
+          <caret line="83" column="30" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/model/facade.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="803" max-vertical-offset="1666">
+          <caret line="68" column="7" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.WebStorm8/system/extLibs/nodejs-v0.10.32-src/core-modules-sources/lib/timers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="8296">
+          <caret line="111" column="14" selection-start-line="111" selection-start-column="14" selection-end-line="111" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/npm/node_modules/mocha/lib/runnable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3962963" vertical-offset="1758" max-vertical-offset="4573">
+          <caret line="116" column="0" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/backend-tests/restAPITests.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5222222" vertical-offset="1622" max-vertical-offset="2584">
-          <caret line="112" column="17" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.6340509" vertical-offset="1869" max-vertical-offset="2584">
+          <caret line="129" column="7" selection-start-line="129" selection-start-column="7" selection-end-line="129" selection-end-column="7" />
           <folding />
         </state>
       </provider>

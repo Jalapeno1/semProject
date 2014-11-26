@@ -54,7 +54,7 @@ describe('REST API for /user', function () {
           }]
         },{userName: "testToDelete",
           moviesOwned: [{
-            id: "123",
+            id: "456",
             imdbURL: "www.url.com",
             genre: "Comedy",
             imdbRating: 9,
@@ -65,7 +65,7 @@ describe('REST API for /user', function () {
           },
 
           {
-            id: "999",
+            id: "657",
             imdbURL: "www.url2.com",
             genre: "Horror",
             imdbRating: 10,
@@ -102,7 +102,7 @@ describe('REST API for /user', function () {
     });
   });
 
-  it("Should get user test's movie collection.", function (done) {
+  it("Should add a title.", function (done) {
     supertest("http://localhost:"+testPort)
         .post("/test/addtitle")
         .expect(200)
@@ -115,7 +115,7 @@ describe('REST API for /user', function () {
     );
   });
 
-  it("Should get user test's movie collection.", function (done) {
+  it("Should get movie details", function (done) {
     var testUser = 'test';
     var testId = '123';
     http.get("http://localhost:"+testPort+"/test/movie/"+testUser+"/"+testId,function(res){
@@ -123,7 +123,7 @@ describe('REST API for /user', function () {
       res.on("data",function(chunk){
         var n = JSON.parse(chunk);
         n.should.have.length(1);
-        assert.equal(null, n[0].moviesOwned.genre)
+        assert.equal("Comedy", n[0].moviesOwned[0].genre);
         //n[0].moviesOwned.genre.should.equal("Comedy");
         done();
       });
@@ -132,7 +132,7 @@ describe('REST API for /user', function () {
 
   it("Should delete a movie from 'test'.", function (done) {
     var testUser = 'testToDelete';
-    var testId = '123';
+    var testId = '456';
     supertest("http://localhost:"+testPort)
         .delete("/test/movie/"+testUser+"/"+testId)
         .expect(200)
