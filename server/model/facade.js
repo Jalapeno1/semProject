@@ -53,19 +53,20 @@ function addTitle (userName, movId, imdbURL, genre, imdbRating,
 
 function getDetails (user, movieId, callback){
 
-    movie.find({$and: [{userName: user}, {$in: {moviesOwned: movieId}}]}).exec(function(err, result){
-        if(err)
-            callback(err);
-        else
-            callback(null, result);
-    });
-
-    //movie.find({'moviesOwned.id': movieId}).where({userName: user}).exec(function(err, result){
+    //movie.find({$and: [{userName: user}, {moviesOwned: [movieId]}]}).exec(function(err, result){
     //    if(err)
     //        callback(err);
     //    else
     //        callback(null, result);
     //});
+
+    movie.find({userName: user},{moviesOwned: {$elemMatch: {id: movieId}}})
+        .exec(function(err, result){
+        if(err)
+            callback(err);
+        else
+            callback(null, result);
+    });
 };
 
 function deleteTitle (userName, movieId, callback){
