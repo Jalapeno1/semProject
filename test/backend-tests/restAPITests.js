@@ -87,8 +87,7 @@ describe('REST API for /user', function () {
     //mongoose.connection.db.dropDatabase();
     testServer.close();
   })
-
-  //RETURNS ALL MOVIES AND DETAILS
+  
   it("Should get user test's movie collection; 'userName' should equal 'test'.", function (done) {
     var testUser = 'test';
     http.get("http://localhost:"+testPort+"/test/allMovies/"+testUser,function(res){
