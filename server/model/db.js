@@ -66,15 +66,24 @@ var adminsSchema = new mongoose.Schema({
 mongoose.model( 'Admin', adminsSchema,"testadmins" );
 
 var movieSchema = new mongoose.Schema({
-  userName: String,
+  userName: {
+    type: String,
+    required: true},
   moviesOwned: [{
-    id: String,
+    id: {
+      type: String,
+      required: true,
+      unique: true
+    },
     imdbURL: String,
     genre: String,
     imdbRating: Number,
     userRating: Number,
     runtime: String,
-    title: String,
+    title: {
+      type: String,
+      required: true
+    },
     year: Number
   }]
 });
