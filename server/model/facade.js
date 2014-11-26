@@ -34,7 +34,7 @@ function getAllTitles (username, callback){
 function addTitle (userName, movId, imdbURL, genre, imdbRating,
                    runtime, title, year, callback){
     var toAdd = {
-        movId: movId,
+        id: movId,
         imdbURL: imdbURL,
         genre: genre,
         imdbRating: imdbRating,
@@ -52,13 +52,6 @@ function addTitle (userName, movId, imdbURL, genre, imdbRating,
 };
 
 function getDetails (user, movieId, callback){
-
-    //movie.find({$and: [{userName: user}, {moviesOwned: [movieId]}]}).exec(function(err, result){
-    //    if(err)
-    //        callback(err);
-    //    else
-    //        callback(null, result);
-    //});
 
     movie.find({userName: user},{moviesOwned: {$elemMatch: {id: movieId}}})
         .exec(function(err, result){
