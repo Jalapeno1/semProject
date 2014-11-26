@@ -89,7 +89,7 @@ describe('REST API for /user', function () {
   })
 
   //RETURNS ALL MOVIES AND DETAILS
-  it("Should get user test's movie collection.", function (done) {
+  it("Should get user test's movie collection; 'userName' should equal 'test'.", function (done) {
     var testUser = 'test';
     http.get("http://localhost:"+testPort+"/test/allMovies/"+testUser,function(res){
       res.setEncoding("utf8");//response data is now a string
@@ -102,9 +102,9 @@ describe('REST API for /user', function () {
     });
   });
 
-  it("Should add a title.", function (done) {
+  it("Should add a title; should return status code 200.", function (done) {
     supertest("http://localhost:"+testPort)
-        .post("/test/addtitle")
+        .post("/test/addtitle/test/666/www.url.com/Drama/9/666min/randomTitle/2014")
         .expect(200)
         .end(function (err, res) {
           if (err)
@@ -115,7 +115,7 @@ describe('REST API for /user', function () {
     );
   });
 
-  it("Should get movie details", function (done) {
+  it("Should get movie details; 'Genre' should equal 'Comedy' ", function (done) {
     var testUser = 'test';
     var testId = '123';
     http.get("http://localhost:"+testPort+"/test/movie/"+testUser+"/"+testId,function(res){
@@ -130,7 +130,7 @@ describe('REST API for /user', function () {
     });
   });
 
-  it("Should delete a movie from 'test'.", function (done) {
+  it("Should delete a movie from 'test'; should return status code 200.", function (done) {
     var testUser = 'testToDelete';
     var testId = '456';
     supertest("http://localhost:"+testPort)

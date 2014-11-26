@@ -77,9 +77,9 @@ router.get('/test/allMovies/:user', function(req, res) {
     })
 });
 
-router.post('/test/addtitle', function (req, res) {
-    facade.addTitle("autoAdd", "123", "www.url.com", "Drama",
-        9, "666min", "YAY!", 2014, function(err, data){
+router.post('/test/addtitle/:user/:movId/:url/:genre/:imdbRating/:runtime/:title/:year', function (req, res) {
+    facade.addTitle(req.params.user, req.params.movId, req.params.url, req.params.genre,
+        req.params.imdbRating, req.params.runtime, req.params.title, req.params.year, function(err, data){
             if(err)
                 res.send(err);
             else
