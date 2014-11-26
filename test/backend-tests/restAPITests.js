@@ -14,7 +14,7 @@ var supertest = require("supertest");
 var User = mongoose.model("User");
 var Movies = mongoose.model("Movies");
 
-describe('REST API for /user', function () {
+describe('REST API for /test', function () {
   //Start the Server before the TESTS
   before(function (done) {
 
@@ -87,7 +87,7 @@ describe('REST API for /user', function () {
     //mongoose.connection.db.dropDatabase();
     testServer.close();
   })
-  
+
   it("Should get user test's movie collection; 'userName' should equal 'test'.", function (done) {
     var testUser = 'test';
     http.get("http://localhost:"+testPort+"/test/allMovies/"+testUser,function(res){
