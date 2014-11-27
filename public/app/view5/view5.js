@@ -10,28 +10,21 @@ angular.module('myAppRename.view5', ['ngRoute'])
     }])
 
     .controller('View5Ctrl', function ($scope, $http, $timeout) {
-        $scope.predicate = "title";
-        $scope.filterText ="";
-        var tempFilterText ="",
-            filterTextTimeout;
-        $scope.$watch("search.$", function(val){
-            if (filterTextTimeout) $timeout.cancel(filterTextTimeout);
 
-            tempFilterText = val;
-            filterTextTimeout = $timeout(function(){
-                $scope.filtetText = tempFilterText;
-
-            }, 250); //delay 250 ms
-        });
 
         $http({
             method: 'GET',
-            url: '/test/allMovies/test'
-            //url: 'http://www.omdbapi.com/?t=frozen&y=&plot=short&r=json'
+            //url: '/test/allMovies/test'
+            url: 'http://www.omdbapi.com/?t={{xxx}}&y=&plot=short&r=json',
+            dataType: 'json'
 
         }).
             success(function (data, status, headers, config) {
-                $scope.movie = data;
+
+                $scope.posts = data;
+                //$scope.posts = jQuery.parseJSON(data);
+
+
             }).
             error(function (data, status, headers, config) {
                 $scope.error = data;

@@ -26,8 +26,8 @@ angular.module('myAppRename.view6', ['ngRoute'])
 
         $http({
             method: 'GET',
-            url: '/test/allMovies/test'
-            //url: 'http://www.omdbapi.com/?t=frozen&y=&plot=short&r=json'
+            //url: '/test/allMovies/test'
+            url: 'http://www.omdbapi.com/?t=frozen&y=&plot=short&r=json'
 
         }).
             success(function (data, status, headers, config) {
