@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('myAppRename.view5', ['ngRoute'])
+angular.module('myAppRename.view6', ['ngRoute'])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/view5', {
-            templateUrl: 'app/view5/view5.html',
-            controller: 'View5Ctrl'
+        $routeProvider.when('/test/allMovies/:user', {
+            templateUrl: 'app/view6/view6.html',
+            controller: 'View6Ctrl'
         });
     }])
 
-    .controller('View5Ctrl', function ($scope, $http, $timeout) {
+    .controller('View6Ctrl', function ($scope, $http, $timeout) {
         $scope.predicate = "title";
         $scope.filterText ="";
         var tempFilterText ="",
