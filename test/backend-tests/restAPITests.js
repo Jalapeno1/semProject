@@ -34,7 +34,6 @@ describe('REST API for /test', function () {
         [{userName: "test",
           moviesOwned: [{
             id: "123",
-            imdbURL: "www.url.com",
             genre: "Comedy",
             imdbRating: 9,
             userRating: 0,
@@ -44,7 +43,6 @@ describe('REST API for /test', function () {
           },
           {
             id: "999",
-            imdbURL: "www.url2.com",
             genre: "Horror",
             imdbRating: 10,
             userRating: 0,
@@ -55,7 +53,6 @@ describe('REST API for /test', function () {
         },{userName: "testToDelete",
           moviesOwned: [{
             id: "456",
-            imdbURL: "www.url.com",
             genre: "Comedy",
             imdbRating: 9,
             userRating: 0,
@@ -66,7 +63,6 @@ describe('REST API for /test', function () {
 
           {
             id: "657",
-            imdbURL: "www.url2.com",
             genre: "Horror",
             imdbRating: 10,
             userRating: 0,
