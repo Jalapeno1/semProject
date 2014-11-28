@@ -75,7 +75,6 @@ var movieSchema = new mongoose.Schema({
       required: true,
       unique: true
     },
-    imdbURL: String,
     genre: String,
     imdbRating: Number,
     userRating: Number,
