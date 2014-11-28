@@ -5,6 +5,29 @@
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css"/>
   <link rel="stylesheet" href="../vendor/bootstrap/dist/css/bootstrap.css">
+  <script src='https://ajax.googlepis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  <script>
+    function postReq(id, genre, rating, runtime, title, year) {
+      alert("test");
+      $.ajax({
+        url: "/test/addtitle/test/456/soren/2/123min/alert/2009",
+        //url: "/test/addtitle/test/"+id+"/"+genre+"/"+rating+"/"+runtime+"/"+title+"/"+year,
+        type: "POST",
+        success: function(){
+          alert("Movie Added!");
+        },
+        error: function(err) {
+          console.log(err)
+          alert(err);
+        }
+      });
+    }
+  </script>
+  <script>
+    function alertMe(){
+      alert("THings asresdsd");
+    }
+  </script>
 </head>
 <body >
 
