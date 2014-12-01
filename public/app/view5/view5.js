@@ -9,13 +9,12 @@ angular.module('myAppRename.view5', ['ngRoute'])
         });
     }])
 
-    .controller('View5Ctrl', function ($scope, $http, $timeout) {
+    .controller('View5Ctrl', function ($scope, $http, $routeParams) {
 
 
         $http({
             method: 'GET',
-            //url: '/test/allMovies/test'
-            url: 'http://www.omdbapi.com/?t={{xxx}}&y=&plot=short&r=json',
+            url: 'http://www.omdbapi.com/?t=' + $scope.search +'&y=&plot=long&r=json',
             dataType: 'json'
 
         }).
