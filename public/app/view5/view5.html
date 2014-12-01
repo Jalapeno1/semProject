@@ -1,22 +1,20 @@
 <br>
 <div>
     <div id="div">
-        <input ng-model='search' placeholder="Insert Title"><hr/>
-        <a class="btn btn-primary btn-lg" href="" role="button">Search</a>
+        <input ng-model='searchTitle' placeholder="Insert Title"><hr/>
+        <input ng-model='searchYear' placeholder="Insert Year"><hr/>
+        <a class="btn btn-primary btn-lg" href="" ng-click="getMovie(searchTitle, searchYear)" role="button">Search</a>
         <br>
         <p>
-            <p>ID: {{posts.imdbID}}</p>
-            <p>Title: {{posts.Title}}</p>
-            <p>Genre: {{posts.Genre}}</p>
-            <p>Year: {{posts.Year}}</p>
-            <p>Runtime: {{posts.Runtime}}</p>
-            <p>imdbRating: {{posts.imdbRating}}</p>
+            <p ng-model="Id">ID: {{posts.imdbID}}</p>
+            <p ng-model="Title">Title: {{posts.Title}}</p>
+            <p ng-model="Genre">Genre: {{posts.Genre}}</p>
+            <p ng-model="Year">Year: {{posts.Year}}</p>
+            <p ng-model="Runtime">Runtime: {{posts.Runtime}}</p>
+            <p ng-model="Rating">imdbRating: {{posts.imdbRating}}</p>
         </p>
         <p>
-            <!--<a class="btn btn-primary btn-lg" onclick="postReq(posts.imdbID, posts.Genre, posts.imdbRating,-->
-            <!--posts.Runtime, posts.Title, posts.Year)" href="/#" role="button">Save Movie</a>-->
-            <a class="btn btn-primary btn-lg" onclick="postReq()" href="/#" role="button">Save Movie</a>
-            <a class="btn btn-primary btn-lg" onclick="alertMe()" href="/#" role="button">test</a>
+            <a class="btn btn-primary btn-lg" href="" ng-click="saveMovie(Id, Title, Genre, Year, Runtime, Rating)" role="button">Search</a>
         </p>
         </p>
     </div>

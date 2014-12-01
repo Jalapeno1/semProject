@@ -11,22 +11,34 @@ angular.module('myAppRename.view5', ['ngRoute'])
 
     .controller('View5Ctrl', function ($scope, $http, $routeParams) {
 
+        $scope.getMovie = function(title, year){
+            $http({
+                method: 'GET',
+                url: 'http://www.omdbapi.com/?t=' + title +'&y=' + year + '&plot=long&r=json',
+                dataType: 'json'
+            }).
+                success(function (data, status, headers, config) {
 
-        $http({
-            method: 'GET',
-            url: 'http://www.omdbapi.com/?t=' + $scope.search +'&y=&plot=long&r=json',
-            dataType: 'json'
+                    $scope.posts = data;
+                }).
+                error(function (data, status, headers, config) {
+                    $scope.error = data;
+                });}
 
-        }).
-            success(function (data, status, headers, config) {
-
-                $scope.posts = data;
-                //$scope.posts = jQuery.parseJSON(data);
-
+        $scope.saveMovie = function(Id, Title, Genre, Year, Runtime, Rating){
+            $http({
+                method: 'POST',
+                url: '/test/addtitle/test/'+ Id +'/'+ Genre +'/'+ Rating +'/'+ Runtime +'/'+ Title +'/'+ Year +''
 
             }).
-            error(function (data, status, headers, config) {
-                $scope.error = data;
-            });
+                success(function (data, status) {
+                    $scope.status = status;
 
-    });
+                }).
+                error(function (data, status, error) {
+                    $scope.error = status;
+
+                });
+        }
+    })
+
