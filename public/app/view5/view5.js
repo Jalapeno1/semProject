@@ -9,9 +9,10 @@ angular.module('myAppRename.view5', ['ngRoute'])
         });
     }])
 
-    .controller('View5Ctrl', function ($scope, $http, $routeParams) {
+    .controller('View5Ctrl', function ($scope, $http) {
 
         $scope.getMovie = function(title, year){
+            console.log(title, year);
             $http({
                 method: 'GET',
                 url: 'http://www.omdbapi.com/?t=' + title +'&y=' + year + '&plot=long&r=json',
@@ -24,21 +25,20 @@ angular.module('myAppRename.view5', ['ngRoute'])
                 error(function (data, status, headers, config) {
                     $scope.error = data;
                 });}
+    });
 
-        $scope.saveMovie = function(Id, Title, Genre, Year, Runtime, Rating){
-            $http({
-                method: 'POST',
-                url: '/test/addtitle/test/'+ Id +'/'+ Genre +'/'+ Rating +'/'+ Runtime +'/'+ Title +'/'+ Year +''
-
-            }).
-                success(function (data, status) {
-                    $scope.status = status;
-
-                }).
-                error(function (data, status, error) {
-                    $scope.error = status;
-
-                });
-        }
-    })
-
+//$scope.saveMovie = function(Id, Title, Genre, Year, Runtime, Rating){
+//    $http({
+//        method: 'POST',
+//        url: '/test/addtitle/test/'+ Id +'/'+ Genre +'/'+ Rating +'/'+ Runtime +'/'+ Title +'/'+ Year +''
+//
+//    }).
+//        success(function (data, status) {
+//            $scope.status = status;
+//
+//        }).
+//        error(function (data, status, error) {
+//            $scope.error = status;
+//
+//        });
+//}
