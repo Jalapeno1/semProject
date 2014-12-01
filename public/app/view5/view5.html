@@ -1,22 +1,29 @@
 <br>
 <div>
     <div id="div">
-        <input ng-model='searchTitle' placeholder="Insert Title"><hr/>
-        <input ng-model='searchYear' placeholder="Insert Year"><hr/>
-        <a class="btn btn-primary btn-lg" href="" ng-click="getMovie(searchTitle, searchYear)" role="button">Search</a>
-        <br>
-        <p>
+        <form name="findMovies">
+            <input  class="form-control input-lg" ng-model='searchTitle' placeholder="Insert Title" required="">
+            <br>
+            <input class="form-control input-lg" ng-maxlength="4" ng-minlength="4" ng-model='searchYear' placeholder="Insert Year" required=""><hr/>
+            <a class="btn btn-primary btn-lg" href=""  ng-click="getMovie(searchTitle, searchYear, true)"
+               ng-disabled="findMovies.$invalid" role="button">Search</a>
+            <br>
+        </form>
+        <form name="addMovie">
+            <p>
             <p ng-model="Id">ID: {{posts.imdbID}}</p>
-            <p ng-model="Genre">Genre: {{posts.Genre}}</p>
-            <p ng-model="Rating">imdbRating: {{posts.imdbRating}}</p>
-            <p ng-model="Runtime">Runtime: {{posts.Runtime}}</p>
             <p ng-model="Title">Title: {{posts.Title}}</p>
+            <p ng-model="Genre">Genre: {{posts.Genre}}</p>
+            <p ng-model="Runtime">Runtime: {{posts.Runtime}}</p>
             <p ng-model="Year">Year: {{posts.Year}}</p>
-        </p>
-        <p>
-            <a class="btn btn-primary btn-lg" href="" ng-click="saveMovie(posts.imdbID, posts.Genre, posts.imdbRating,
-            posts.Runtime, posts.Title, posts.Year)" role="button">Save Movie</a>
-        </p>
-        </p>
+            <p ng-model="Rating">imdbRating: {{posts.imdbRating}}</p>
+            </p>
+            <p>
+                <a id="submit" ng-show="showBut" class="btn btn-primary btn-lg" ng-click="saveMovie(posts.imdbID, posts.Genre, posts.imdbRating,
+                posts.Runtime, posts.Title, posts.Year)" ng-disabled="addMovie.$invalid" role="button" href=""
+                   onclick="document.location.reload(true)" >Save Movie</a>
+            </p>
+            </p>
+        </form>
     </div>
 </div>
