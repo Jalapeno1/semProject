@@ -7,14 +7,15 @@
         <br>
         <p>
             <p ng-model="Id">ID: {{posts.imdbID}}</p>
-            <p ng-model="Title">Title: {{posts.Title}}</p>
             <p ng-model="Genre">Genre: {{posts.Genre}}</p>
-            <p ng-model="Year">Year: {{posts.Year}}</p>
-            <p ng-model="Runtime">Runtime: {{posts.Runtime}}</p>
             <p ng-model="Rating">imdbRating: {{posts.imdbRating}}</p>
+            <p ng-model="Runtime">Runtime: {{posts.Runtime}}</p>
+            <p ng-model="Title">Title: {{posts.Title}}</p>
+            <p ng-model="Year">Year: {{posts.Year}}</p>
         </p>
         <p>
-            <a class="btn btn-primary btn-lg" href="" ng-click="saveMovie(Id, Title, Genre, Year, Runtime, Rating)" role="button">Search</a>
+            <a class="btn btn-primary btn-lg" href="" ng-click="saveMovie(posts.imdbID, posts.Genre, posts.imdbRating,
+            posts.Runtime, posts.Title, posts.Year)" role="button">Save Movie</a>
         </p>
         </p>
     </div>

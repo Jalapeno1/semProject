@@ -76,14 +76,14 @@ var movieSchema = new mongoose.Schema({
       unique: true
     },
     genre: String,
-    imdbRating: Number,
-    userRating: Number,
+    imdbRating: String,
     runtime: String,
     title: {
       type: String,
       required: true
     },
-    year: Number
+    year: String,
+    userRating: Number
   }]
 });
 

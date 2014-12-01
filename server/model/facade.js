@@ -37,10 +37,10 @@ function addTitle (userName, movId, genre, imdbRating,
         id: movId,
         genre: genre,
         imdbRating: imdbRating,
-        userRating: 0,
         runtime: runtime,
         title: title,
-        year: year
+        year: year,
+        userRating: 0
     }
     movie.update({userName: userName}, {$push: {"moviesOwned":toAdd}}, function(err, result){
         if(err)

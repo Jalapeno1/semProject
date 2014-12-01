@@ -35,40 +35,40 @@ describe('REST API for /test', function () {
           moviesOwned: [{
             id: "123",
             genre: "Comedy",
-            imdbRating: 9,
-            userRating: 0,
+            imdbRating: '9',
             runtime: "213min",
             title: "The Test Movie",
-            year: 2014
+            year: '2014',
+            userRating: 0
           },
           {
             id: "999",
             genre: "Horror",
-            imdbRating: 10,
-            userRating: 0,
+            imdbRating: '10',
             runtime: "90min",
             title: "Sem Project",
-            year: 2012
+            year: '2012',
+            userRating: 0
           }]
         },{userName: "testToDelete",
           moviesOwned: [{
             id: "456",
             genre: "Comedy",
-            imdbRating: 9,
-            userRating: 0,
+            imdbRating: '9',
             runtime: "213min",
             title: "The Test Movie",
-            year: 2014
+            year: '2014',
+            userRating: 0
           },
 
           {
             id: "657",
             genre: "Horror",
-            imdbRating: 10,
-            userRating: 0,
+            imdbRating: '10',
             runtime: "90min",
             title: "Sem Project",
-            year: 2012
+            year: '2012',
+            userRating: 0
           }]
         }];
 
