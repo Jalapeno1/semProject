@@ -31,11 +31,10 @@ function getAllTitles (username, callback){
     });
 };
 
-function addTitle (userName, movId, imdbURL, genre, imdbRating,
+function addTitle (userName, movId, genre, imdbRating,
                    runtime, title, year, callback){
     var toAdd = {
         id: movId,
-        imdbURL: imdbURL,
         genre: genre,
         imdbRating: imdbRating,
         userRating: 0,

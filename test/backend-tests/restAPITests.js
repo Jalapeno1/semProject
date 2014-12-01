@@ -99,7 +99,7 @@ describe('REST API for /test', function () {
 
   it("Should add a title; should return status code 200.", function (done) {
     supertest("http://localhost:"+testPort)
-        .post("/test/addtitle/test/666/www.url.com/Drama/9/666min/randomTitle/2014")
+        .post("/test/addtitle/test/499/Drama/9/666min/randomTitle/2014")
         .expect(200)
         .end(function (err, res) {
           if (err)
