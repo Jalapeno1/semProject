@@ -11,11 +11,10 @@ angular.module('myAppRename.view2', ['ngRoute'])
   .controller('View2Ctrl', ['$scope', '$http', function ($scope, $http) {
     $http({
       method: 'GET',
-      url: 'userApi/test'
+      url: '/test/allMovies/test'
     })
       .success(function (data, status, headers, config) {
-        $scope.info = data;
-        $scope.error = null;
+        $scope.collection = data;
       }).
       error(function (data, status, headers, config) {
         if (status == 401) {
