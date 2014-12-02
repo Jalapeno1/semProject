@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myAppRename.view5', ['ngRoute'])
+angular.module('myAppRename.view5', ['ngRoute', 'ngProgress'])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/view5', {
@@ -9,9 +9,10 @@ angular.module('myAppRename.view5', ['ngRoute'])
         });
     }])
 
-    .controller('View5Ctrl', function ($scope, $http) {
+    .controller('View5Ctrl', function ($scope, $http, ngProgress) {
         // Searches for a movie title
         $scope.getMovie = function(title, year, showIt){
+            ngProgress.start();
             if(showIt==="undefined"){
                 $scope.showBut = false
             } else {
@@ -19,12 +20,14 @@ angular.module('myAppRename.view5', ['ngRoute'])
             }
             // Gets data from API
             $http({
+
                 method: 'GET',
                 url: 'http://www.omdbapi.com/?t=' + title +'&y=' + year + '&plot=long&r=json',
                 dataType: 'json'
             }).
                 success(function (data, status, headers, config) {
                     $scope.posts = data;
+                    ngProgress.complete();
                 }).
                 error(function (data, status, headers, config) {
                     $scope.error = data;
