@@ -1,29 +1,46 @@
 <br>
 <div>
     <div id="div">
-        <form name="findMovies">
-            <input  class="form-control input-lg" ng-model='searchTitle' placeholder="Insert Title" required="">
-            <br>
-            <input class="form-control input-lg" ng-maxlength="4" ng-minlength="4" ng-model='searchYear' placeholder="Insert Year" required=""><hr/>
-            <a class="btn btn-primary btn-lg" href=""  ng-click="getMovie(searchTitle, searchYear, true)"
-               ng-disabled="findMovies.$invalid" role="button">Search</a>
-            <br>
-        </form>
-        <form name="addMovie">
-            <p>
-            <p ng-model="Id">ID: {{posts.imdbID}}</p>
-            <p ng-model="Title">Title: {{posts.Title}}</p>
-            <p ng-model="Genre">Genre: {{posts.Genre}}</p>
-            <p ng-model="Runtime">Runtime: {{posts.Runtime}}</p>
-            <p ng-model="Year">Year: {{posts.Year}}</p>
-            <p ng-model="Rating">imdbRating: {{posts.imdbRating}}</p>
-            </p>
-            <p>
-                <a id="submit" ng-show="showBut" class="btn btn-primary btn-lg" ng-click="saveMovie(posts.imdbID, posts.Genre, posts.imdbRating,
-                posts.Runtime, posts.Title, posts.Year)" ng-disabled="addMovie.$invalid" role="button" href=""
-                   onclick="document.location.reload(true)" >Save Movie</a>
-            </p>
-            </p>
-        </form>
+        <div class="col-lg-4">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3>Movie Search</h3>
+                </div>
+                <div class="panel-body">
+                    <form name="findMovies">
+                        <input  class="form-control input-lg" ng-model='searchTitle' placeholder="Title..." required="">
+                        <br>
+                        <input class="form-control input-lg" ng-maxlength="4" ng-minlength="4" ng-model='searchYear' placeholder="Year of Release..." required="">
+                        <br>
+                        <a class="btn btn-warning btn-lg" href="" ng-click="getMovie(searchTitle, searchYear, true)"
+                           ng-disabled="findMovies.$invalid" role="button">Search</a>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="panel panel-success" ng-show="showBut">
+                <div class="panel-heading">
+                    <h3>Result</h3>
+                </div>
+                <div class="panel-body">
+                    <form name="addMovie">
+                        <h4 class="text-muted" ng-model="Id">ID: {{posts.imdbID}}</h4>
+                        <h3 ng-model="Title">Title: {{posts.Title}}</h3>
+                        <h3 ng-model="Genre">Genre: {{posts.Genre}}</h3>
+                        <h3 ng-model="Runtime">Runtime: {{posts.Runtime}}</h3>
+                        <h3 ng-model="Year">Year: {{posts.Year}}</h3>
+                        <h3 ng-model="Rating">IMDB-rating: {{posts.imdbRating}}</h3>
+                        <br>
+                        <p>
+                            <a id="submit" class="btn btn-success btn-lg" ng-click="saveMovie(posts.imdbID, posts.Genre, posts.imdbRating,
+                            posts.Runtime, posts.Title, posts.Year)" ng-disabled="addMovie.$invalid" role="button" href=""
+                               onclick="document.location.reload(true)" >Add To Collection</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

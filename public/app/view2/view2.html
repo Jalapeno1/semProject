@@ -1,22 +1,52 @@
 <form name="moviesOwned">
-  <div class="col-md-6">
-    <table  class="table table-striped table-hover" ng-repeat="data in collection">
-      <thead>
-      <tr>
-        <th>Title</th>
-        <th>Year</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr ng-repeat="cont in data.moviesOwned">
-        <td>{{cont.title}}</td>
-        <td>{{cont.year}}</td>
-      </tr>
-      </tbody>
-    </table>
+    <div class="col-md-6">
+      <br>
+        <table  class="table table-striped table-hover" ng-repeat="data in collection">
+          <thead>
+            <tr class="success">
+              <th><h3>Title</h3></th>
+              <th><h3>Year</h3></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="cont in data.moviesOwned">
+              <td><h4>{{cont.title}}</h4></td>
+              <td>{{cont.year}}</td>
+            </tr>
+          </tbody>
+        </table>
   </div>
   <div class="col-lg-6">
-    <p>Here goes the details</p>
+    <br>
+    <div name="movieDetails" class="panel panel-warning" style="position: fixed; height: 450px; width:500px;">
+      <div class="panel-heading">
+        <h3>Details</h3>
+      </div>
+      <div class="panel-body">
+          <h3>Title: </h3>
+          <h3>Genre: </h3>
+          <h3>Runtime: </h3>
+          <h3>Year: </h3>
+          <h3>IMDB-rating: </h3>
+        <br>
+        <a class="btn btn-danger btn-lg" href="" role="button">Delete</a>
+        <div class="btn-group">
+          <a href="#" class="btn btn-warning btn-lg" ng-disabled="true">Rate</a>
+          <a href="#" class="btn btn-warning btn-lg dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="">1/5</a></li>
+            <li><a href="">2/5</a></li>
+            <li><a href="">3/5</a></li>
+            <li><a href="">4/5</a></li>
+            <li><a href="">5/5</a></li>
+            <li class="divider"></li>
+            <li><a href="">Remove Rating</a></li>
+          </ul>
+        </div>
+
+        <br>
+      </div>
+    </div>
   </div>
 </form>
 
