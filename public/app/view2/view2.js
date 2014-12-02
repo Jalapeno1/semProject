@@ -14,7 +14,8 @@ angular.module('myAppRename.view2', ['ngRoute'])
       url: '/test/allMovies/test'
     })
       .success(function (data, status, headers, config) {
-        $scope.collection = data;
+          //$scope.collection = data;
+          $scope.justMovies = data[0].moviesOwned;
       }).
       error(function (data, status, headers, config) {
         if (status == 401) {
@@ -39,7 +40,8 @@ angular.module('myAppRename.view2', ['ngRoute'])
             error(function (data, status, error) {
               $scope.error = status;
             });
-      }
+      };
+
       $scope.updateRating = function(Id, rating){
         console.log(rating);
         var urlStr = '/test/addRating/test/123/'+ rating +'/'
@@ -49,11 +51,29 @@ angular.module('myAppRename.view2', ['ngRoute'])
           method: 'POST',
           url: urlStr
         }).
-            success(function (data, status) {
-              $scope.status = status;
-            }).
-            error(function (data, status, error) {
-              $scope.error = status;
-            });
-      }
+          success(function (data, status) {
+            $scope.status = status;
+          }).
+          error(function (data, status, error) {
+            $scope.error = status;
+          });
+      };
+
+      $scope.predicate = "title";
+
+      $scope.open = function(item){
+        if ($scope.isOpen(item)){
+          $scope.opened = undefined;
+        } else {
+          $scope.opened = item;
+        }
+      };
+
+      $scope.isOpen = function(item){
+        return $scope.opened === item;
+      };
+
+      $scope.anyItemOpen = function() {
+        return $scope.opened !== undefined;
+      };
   }]);

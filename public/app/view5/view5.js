@@ -11,7 +11,6 @@ angular.module('myAppRename.view5', ['ngRoute'])
 
     .controller('View5Ctrl', function ($scope, $http) {
         $scope.getMovie = function(title, year, showIt){
-            var showBut
             if(showIt==="undefined"){
                 $scope.showBut = false
             } else {
@@ -28,7 +27,9 @@ angular.module('myAppRename.view5', ['ngRoute'])
                 }).
                 error(function (data, status, headers, config) {
                     $scope.error = data;
-                });}
+                });
+        };
+
             $scope.saveMovie = function(Id, Rating, Year, Title, Genre, Runtime){
                 console.log(Id, Title, Genre, Year, Runtime, Rating);
                 var urlStr = '/test/addtitle/test/' + Id + '/' + Rating + '/' + Year + '/' + Title + '/' + Genre + '/' + Runtime +''
