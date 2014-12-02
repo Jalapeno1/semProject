@@ -23,4 +23,21 @@ angular.module('myAppRename.view2', ['ngRoute'])
         }
         $scope.error = data;
       });
+
+      $scope.deleteMovie = function(Id){
+        console.log(Id);
+        var urlStr = '/test/movie/test/' + Id + '/'
+        console.log(urlStr);
+
+        $http({
+          method: 'DELETE',
+          url: urlStr
+        }).
+            success(function (data, status) {
+              $scope.status = status;
+            }).
+            error(function (data, status, error) {
+              $scope.error = status;
+            });
+      }
   }]);
