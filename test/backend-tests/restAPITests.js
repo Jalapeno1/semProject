@@ -138,4 +138,19 @@ describe('REST API for /test', function () {
           done();
         });
   });
+
+  it("Should rate movie 'The Test Movie'; should return status code 200", function (done) {
+    var testUser = 'test';
+    var testId = '123';
+    var rating = '5';
+    supertest("http://localhost:"+testPort)
+        .post("/test/addRating/"+testUser+"/"+testId+"/"+rating)
+        .expect(200)
+        .end(function (err) {
+          if (err)
+            return done(err);
+
+          done();
+        });
+  });
 });
