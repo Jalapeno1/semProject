@@ -70,8 +70,14 @@ function deleteTitle (userName, movieId, callback){
     });
 };
 
-function rateTitle (movId, starCount, callback){
-
+function rateTitle (username, movId, starCount, callback){
+    movie.update({userName: username, "moviesOwned.id": movId}, {$set: {"moviesOwned.$.userRating": starCount}})
+        .exec(function(err, result){
+            if(err)
+                callback(err);
+            else
+                callback(null, result);
+        });
 };
 
 module.exports = {

@@ -87,6 +87,15 @@ router.post('/test/addtitle/:user/:movId/:genre/:imdbRating/:runtime/:title/:yea
         });
 });
 
+router.post('/test/addRating/:user/:movId/:rating', function(req, res){
+    facade.rateTitle(req.params.user, req.params.movId, req.params.rating ,function(err, data){
+        if(err)
+            res.send(err);
+        else
+            res.end(JSON.stringify(data));
+    })
+})
+
 router.get('/test/movie/:user/:id', function(req, res) {
     facade.getDetails(req.params.user, req.params.id, function(err, data){
         if(err)
