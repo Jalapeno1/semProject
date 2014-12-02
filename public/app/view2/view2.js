@@ -8,7 +8,7 @@ angular.module('myAppRename.view2', ['ngRoute'])
       controller: 'View2Ctrl'
     });
   }])
-  .controller('View2Ctrl', ['$scope', '$http', function ($scope, $http) {
+  .controller('View2Ctrl', ['$scope', '$http', function ($scope, $http, $route, ngProgress) {
     $http({
       method: 'GET',
       url: '/test/allMovies/test'
@@ -54,6 +54,7 @@ angular.module('myAppRename.view2', ['ngRoute'])
         }).
           success(function (data, status) {
             $scope.status = status;
+              $route.reload();
           }).
           error(function (data, status, error) {
             $scope.error = status;
