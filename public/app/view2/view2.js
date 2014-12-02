@@ -40,4 +40,20 @@ angular.module('myAppRename.view2', ['ngRoute'])
               $scope.error = status;
             });
       }
+      $scope.updateRating = function(Id, rating){
+        console.log(rating);
+        var urlStr = '/test/addRating/test/123/'+ rating +'/'
+        console.log(urlStr);
+
+        $http({
+          method: 'POST',
+          url: urlStr
+        }).
+            success(function (data, status) {
+              $scope.status = status;
+            }).
+            error(function (data, status, error) {
+              $scope.error = status;
+            });
+      }
   }]);
