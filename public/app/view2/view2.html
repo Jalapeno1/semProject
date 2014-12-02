@@ -51,17 +51,16 @@
             <h3>Runtime: {{opened.runtime}}</h3>
             <h3>Year: {{opened.year}}</h3>
             <h3>IMDB-rating: {{opened.imdbRating}}</h3>
+            <h3>Your rating: {{opened.userRating}}</h3>
           </div>
-          <br>
           <p></p>
           <div class="form-group">
             <div class="btn-group">
               <!--<h5 class="text-muted">Rate this Title</h5>-->
               <form name="rating">
-                <a class="btn btn-warning btn-lg " ng-click="updateRating(rateMovie)" role="button" href=""
+                <a class="btn btn-warning btn-lg " ng-click="updateRating(opened.id, myRating)" role="button" href=""
                    onclick="document.location.reload(true)">Rate</a>
-                <select ng-model="rateMovie" class="btn btn-warning btn-lg dropdown-toggle" data-toggle="dropdown">
-                  <option value="" disabled selected></option>
+                <select ng-model='myRating' class="btn btn-warning btn-lg dropdown-toggle" data-toggle="dropdown">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>

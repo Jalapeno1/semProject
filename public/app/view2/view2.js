@@ -44,9 +44,8 @@ angular.module('myAppRename.view2', ['ngRoute'])
       };
 
       // Updates user rating on a title
-      $scope.updateRating = function(Id, rating){
-        console.log(rating);
-        var urlStr = '/test/addRating/test/123/'+ rating +'/'
+      $scope.updateRating = function(movieId, rating){
+        var urlStr = '/test/addRating/test/'+ movieId +'/'+ rating +'/'
         console.log(urlStr);
 
         $http({
