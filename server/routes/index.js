@@ -68,6 +68,7 @@ router.get('/partials/:partialName', function(req, res) {
     res.render('partials/' + name);
 });
 
+//Gets all titles from user's collection
 router.get('/test/allMovies/:user', function(req, res) {
     facade.getAllTitles(req.params.user, function(err, data){
         if(err)
@@ -77,6 +78,7 @@ router.get('/test/allMovies/:user', function(req, res) {
     })
 });
 
+//Adds a movie to collection
 router.post('/test/addtitle/:user/:movId/:genre/:imdbRating/:runtime/:title/:year', function (req, res) {
     facade.addTitle(req.params.user, req.params.movId, req.params.genre,
         req.params.imdbRating, req.params.runtime, req.params.title, req.params.year, function(err, data){
@@ -87,6 +89,7 @@ router.post('/test/addtitle/:user/:movId/:genre/:imdbRating/:runtime/:title/:yea
         });
 });
 
+//Adds user rating to a given movie
 router.post('/test/addRating/:user/:movId/:rating', function(req, res){
     facade.rateTitle(req.params.user, req.params.movId, req.params.rating ,function(err, data){
         if(err)
@@ -96,6 +99,7 @@ router.post('/test/addRating/:user/:movId/:rating', function(req, res){
     })
 })
 
+//Gets details of given movie
 router.get('/test/movie/:user/:id', function(req, res) {
     facade.getDetails(req.params.user, req.params.id, function(err, data){
         if(err)
@@ -105,6 +109,7 @@ router.get('/test/movie/:user/:id', function(req, res) {
     })
 });
 
+//Deletes Title
 router.delete('/test/movie/:user/:id', function(req, res) {
     facade.deleteTitle(req.params.user, req.params.id, function(err, data){
         if(err)

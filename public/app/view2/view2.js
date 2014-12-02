@@ -25,6 +25,7 @@ angular.module('myAppRename.view2', ['ngRoute'])
         $scope.error = data;
       });
 
+      // Deletes a movie from collection
       $scope.deleteMovie = function(Id){
         console.log(Id);
         var urlStr = '/test/movie/test/' + Id + '/'
@@ -42,6 +43,7 @@ angular.module('myAppRename.view2', ['ngRoute'])
             });
       };
 
+      // Updates user rating on a title
       $scope.updateRating = function(Id, rating){
         console.log(rating);
         var urlStr = '/test/addRating/test/123/'+ rating +'/'
@@ -59,8 +61,10 @@ angular.module('myAppRename.view2', ['ngRoute'])
           });
       };
 
+      // Sorts movie collection alphabetically by default
       $scope.predicate = "title";
 
+      // Handles dynamically changing detail windows
       $scope.open = function(item){
         if ($scope.isOpen(item)){
           $scope.opened = undefined;
@@ -76,4 +80,5 @@ angular.module('myAppRename.view2', ['ngRoute'])
       $scope.anyItemOpen = function() {
         return $scope.opened !== undefined;
       };
+      // ---------------------------------------------
   }]);

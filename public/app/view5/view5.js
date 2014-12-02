@@ -10,13 +10,14 @@ angular.module('myAppRename.view5', ['ngRoute'])
     }])
 
     .controller('View5Ctrl', function ($scope, $http) {
+        // Searches for a movie title
         $scope.getMovie = function(title, year, showIt){
             if(showIt==="undefined"){
                 $scope.showBut = false
             } else {
                 $scope.showBut = showIt
             }
-
+            // Gets data from API
             $http({
                 method: 'GET',
                 url: 'http://www.omdbapi.com/?t=' + title +'&y=' + year + '&plot=long&r=json',
@@ -29,7 +30,7 @@ angular.module('myAppRename.view5', ['ngRoute'])
                     $scope.error = data;
                 });
         };
-
+            // Adds found title to user's collection
             $scope.saveMovie = function(Id, Rating, Year, Title, Genre, Runtime){
                 console.log(Id, Title, Genre, Year, Runtime, Rating);
                 var urlStr = '/test/addtitle/test/' + Id + '/' + Rating + '/' + Year + '/' + Title + '/' + Genre + '/' + Runtime +''

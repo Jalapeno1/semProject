@@ -1,5 +1,5 @@
 <form name="moviesOwned">
-    <div class="col-md-6">
+    <div class="col-md-8">
       <br>
         <table class="table table-striped table-hover">
           <thead>
@@ -9,20 +9,34 @@
                   <h3>Title</h3></a>
               </th>
               <th>
+                <a href="">
+                  <h3>Genre</h3></a>
+              </th>
+              <th>
                 <a href="" ng-click="predicate='year'; reverse=!reverse">
                   <h3>Year</h3></a>
               </th>
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="item in justMovies | orderBy:predicate:reverse">
+            <tr>
+              <td><input class="form-control"
+                         placeholder="Search for Title, Genre or Release Year..."
+                         type="search" ng-model="filterCont">
+                  </input>
+              </td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr ng-repeat="item in justMovies | filter:filterCont | orderBy:predicate:reverse">
                 <td ng-click="open(item)"><h4>{{item.title}}</h4></td>
+                <td ng-click="open(item)"><h5 class="text-muted">{{item.genre}}</h5></td>
                 <td ng-click="open(item)"><h4>{{item.year}}</h4></td>
             </tr>
           </tbody>
         </table>
   </div>
-  <div class="col-lg-6">
+  <div class="col-lg-4">
     <br>
     <ng-switch on="anyItemOpen()">
       <div ng-switch-when="true" name="movieDetails" class="panel panel-warning"
@@ -41,16 +55,22 @@
           <br>
           <p></p>
           <div class="form-group">
-            <select ng-model="rateMovie" class="btn btn-default btn-lg dropdown-toggle">
-              <option value="" disabled selected>Rate this movie</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-            <a class="btn btn-warning btn-lg " ng-click="updateRating(rateMovie)" role="button" href=""
-               onclick="document.location.reload(true)">Update</a>
+            <div class="btn-group">
+              <!--<h5 class="text-muted">Rate this Title</h5>-->
+              <form name="rating">
+                <a class="btn btn-warning btn-lg " ng-click="updateRating(rateMovie)" role="button" href=""
+                   onclick="document.location.reload(true)">Rate</a>
+                <select ng-model="rateMovie" class="btn btn-warning btn-lg dropdown-toggle" data-toggle="dropdown">
+                  <option value="" disabled selected></option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+                <br>
+              </form>
+            </div>
             <a class="btn btn-danger btn-lg pull-right " ng-click="deleteMovie(cont.id)" role="button" href=""
                onclick="document.location.reload(true)">Delete</a>
           </div>
