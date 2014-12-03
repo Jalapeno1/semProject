@@ -27,9 +27,7 @@ angular.module('myAppRename.view2', ['ngRoute'])
 
       // Deletes a movie from collection
       $scope.deleteMovie = function(Id){
-        console.log(Id);
         var urlStr = '/test/movie/test/' + Id + '/'
-        console.log(urlStr);
 
         $http({
           method: 'DELETE',
@@ -45,20 +43,22 @@ angular.module('myAppRename.view2', ['ngRoute'])
 
       // Updates user rating on a title
       $scope.updateRating = function(movieId, rating){
-        var urlStr = '/test/addRating/test/'+ movieId +'/'+ rating +'/'
-        console.log(urlStr);
 
-        $http({
-          method: 'POST',
-          url: urlStr
-        }).
-          success(function (data, status) {
-            $scope.status = status;
+        var updateJSON = {
+          "user": "test",
+          "id": movieId,
+          "userRating": rating
+        };
+
+        $http
+            .post("/test/addRating", updateJSON)
+            .success(function(data, status){
+              $scope.status = status;
               $route.reload();
-          }).
-          error(function (data, status, error) {
-            $scope.error = status;
-          });
+            })
+            .error(function (data, status, error) {
+              $scope.error = status;
+            });
       };
 
       // Sorts movie collection alphabetically by default

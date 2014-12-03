@@ -34,10 +34,6 @@ angular.module('myAppRename.view5', ['ngRoute'])
             // Adds found title to user's collection
             $scope.saveMovie = function(Id, Rating, Year, Title, Genre, Runtime, Plot, Poster){
 
-                //var urlStr = '/test/addtitle/test/' + Id + '/' + Rating + '/' + Year + '/' + Title + '/' + Genre + '/'
-                //    + Runtime + '/' + Plot + '';
-                //console.log(urlStr);
-
                 var urlJSON = {
                     "user": "test",
                     "id": Id,
@@ -59,17 +55,5 @@ angular.module('myAppRename.view5', ['ngRoute'])
                     .error(function (data, status, error) {
                         $scope.error = status;
                     });
-
-                //$http({
-                //    method: 'POST',
-                //    url: urlStr
-                //}).
-                //    success(function (data, status) {
-                //        $scope.status = status;
-                //        $route.reload();
-                //    }).
-                //    error(function (data, status, error) {
-                //        $scope.error = status;
-                //    });
-        }
+            }
     });

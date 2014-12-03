@@ -162,11 +162,15 @@ describe('REST API for /test', function () {
   });
 
   it("Should rate movie 'The Test Movie'; should return status code 200", function (done) {
-    var testUser = 'test';
-    var testId = '123';
-    var rating = '5';
+    var json = {
+      "user": 'test',
+      "id": '123',
+      "userRating": '5'
+    }
+
     supertest("http://localhost:"+testPort)
-        .post("/test/addRating/"+testUser+"/"+testId+"/"+rating)
+        .post("/test/addRating/")
+        .send(json)
         .expect(200)
         .end(function (err) {
           if (err)

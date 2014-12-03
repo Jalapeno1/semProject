@@ -91,18 +91,6 @@ router.get('/test/allMovies/:user', function(req, res) {
 //});
 
 router.post('/test/addtitle/', function (req, res) {
-
-    //var urlJSON = {
-    //    "user": req.body.user,
-    //    "id": req.body.id,
-    //    "rating": req.body.rating,
-    //    "year": req.body.year,
-    //    "title": req.body.title,
-    //    "genre": req.body.genre,
-    //    "runtime": req.body.runtime,
-    //    "plot": req.body.plot
-    //};
-
     facade.addTitle(req.body.user, req.body.id, req.body.rating,
         req.body.year, req.body.title, req.body.genre, req.body.runtime, req.body.plot, req.body.poster,
         function(err, data){
@@ -114,8 +102,8 @@ router.post('/test/addtitle/', function (req, res) {
 });
 
 //Adds user rating to a given movie
-router.post('/test/addRating/:user/:movId/:rating', function(req, res){
-    facade.rateTitle(req.params.user, req.params.movId, req.params.rating ,function(err, data){
+router.post('/test/addRating/', function(req, res){
+    facade.rateTitle(req.body.user, req.body.id, req.body.userRating ,function(err, data){
         if(err)
             res.send(err);
         else
@@ -142,5 +130,7 @@ router.delete('/test/movie/:user/:id', function(req, res) {
             res.end(JSON.stringify(data));
     })
 });
+
+
 
 module.exports = router;
