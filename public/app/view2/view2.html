@@ -43,6 +43,20 @@
            style="position: fixed; width:500px;">
         <div class="panel-heading">
           <h3>Details</h3>
+          <div class="btn-group">
+            <a class="btn btn-warning btn-lg" ng-click="updateRating(opened.id, myRating)" role="button" href=""
+               onclick="document.location.reload(true)">Rate</a>
+            <select ng-model='myRating' class="btn btn-warning btn-lg" data-toggle="dropdown">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+            <br>
+          </div>
+          <a class="btn btn-danger pull-right " ng-click="deleteMovie(opened.id)" role="button" href=""
+             onclick="document.location.reload(true)">Delete</a>
         </div>
         <div class="panel-body">
           <div class="container-fluid">
@@ -65,28 +79,7 @@
             </div>
             <hr>
           </div>
-          <p></p>
-          <div class="form-group">
-            <div class="btn-group">
-              <!--<h5 class="text-muted">Rate this Title</h5>-->
-              <form name="rating">
-                <a class="btn btn-warning btn-lg " ng-click="updateRating(opened.id, myRating)" role="button" href=""
-                   onclick="document.location.reload(true)">Rate</a>
-                <select ng-model='myRating' class="btn btn-warning btn-lg dropdown-toggle" data-toggle="dropdown">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-                <br>
-              </form>
-            </div>
-            <a class="btn btn-danger btn-lg pull-right " ng-click="deleteMovie(opened.id)" role="button" href=""
-               onclick="document.location.reload(true)">Delete</a>
-          </div>
-          <br>
-          </div>
+        </div>
       </div>
     </ng-switch>
     </div>
