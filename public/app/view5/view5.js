@@ -34,20 +34,42 @@ angular.module('myAppRename.view5', ['ngRoute'])
             // Adds found title to user's collection
             $scope.saveMovie = function(Id, Rating, Year, Title, Genre, Runtime, Plot, Poster){
 
-                var urlStr = '/test/addtitle/test/' + Id + '/' + Rating + '/' + Year + '/' + Title + '/' + Genre + '/'
-                    + Runtime + '/' + Plot + '';
-                console.log(urlStr);
+                //var urlStr = '/test/addtitle/test/' + Id + '/' + Rating + '/' + Year + '/' + Title + '/' + Genre + '/'
+                //    + Runtime + '/' + Plot + '';
+                //console.log(urlStr);
 
-                $http({
-                    method: 'POST',
-                    url: urlStr
-                }).
-                    success(function (data, status) {
+                var urlJSON = {
+                    "user": "test",
+                    "id": Id,
+                    "rating": Rating,
+                    "year": Year,
+                    "title": Title,
+                    "genre": Genre,
+                    "runtime": Runtime,
+                    "plot": Plot,
+                    "poster": Poster
+                };
+
+                $http
+                    .post("/test/addTitle", urlJSON)
+                    .success(function (data, status) {
                         $scope.status = status;
                         $route.reload();
-                    }).
-                    error(function (data, status, error) {
+                    })
+                    .error(function (data, status, error) {
                         $scope.error = status;
                     });
+
+                //$http({
+                //    method: 'POST',
+                //    url: urlStr
+                //}).
+                //    success(function (data, status) {
+                //        $scope.status = status;
+                //        $route.reload();
+                //    }).
+                //    error(function (data, status, error) {
+                //        $scope.error = status;
+                //    });
         }
     });

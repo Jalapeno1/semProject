@@ -40,6 +40,7 @@ describe('REST API for /test', function () {
             title: "The Test Movie",
             year: '2014',
             plot: 'nothing',
+            poster: "url.com",
             userRating: 0
           },
           {
@@ -50,6 +51,7 @@ describe('REST API for /test', function () {
             title: "Sem Project",
             year: '2012',
             plot: 'nothing',
+            poster: "url.com",
             userRating: 0
           }]
         },{userName: "testToDelete",
@@ -61,6 +63,7 @@ describe('REST API for /test', function () {
             title: "The Test Movie",
             year: '2014',
             plot: 'nothing',
+            poster: "url.com",
             userRating: 0
           },
 
@@ -72,6 +75,7 @@ describe('REST API for /test', function () {
             title: "Sem Project",
             year: '2012',
             plot: 'nothing',
+            poster: "url.com",
             userRating: 0
           }]
         }];
@@ -102,8 +106,22 @@ describe('REST API for /test', function () {
   });
 
   it("Should add a title; should return status code 200.", function (done) {
+
+    var urlJSON = {
+      "user": "test",
+      "id": "499",
+      "rating": "Drama",
+      "year": "9",
+      "title": "666min",
+      "genre": "randomTitle",
+      "runtime": "2014",
+      "plot": "something",
+      "poster": "url.com"
+    };
+
     supertest("http://localhost:"+testPort)
-        .post("/test/addtitle/test/499/Drama/9/666min/randomTitle/2014/something")
+        .post("/test/addtitle/")
+        .send(urlJSON)
         .expect(200)
         .end(function (err, res) {
           if (err)

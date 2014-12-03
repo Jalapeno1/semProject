@@ -46,11 +46,14 @@
                         <h3 ng-model="Runtime">Runtime: {{posts.Runtime}}</h3>
                         <h3 ng-model="Year">Year: {{posts.Year}}</h3>
                         <h3 ng-model="Rating">IMDB-rating: {{posts.imdbRating}}</h3>
-                        <h3 ng-model="Plot">Plot: {{posts.Plot}}</h3>
+                        <br>
+                        <div class="well well-sm">
+                            <h4 class="text-muted">{{posts.Plot}}</h4>
+                        </div>
                         <br>
                         <p>
                             <a id="submit" class="btn btn-success btn-lg" ng-click="saveMovie(posts.imdbID, posts.Genre, posts.imdbRating,
-                            posts.Runtime, posts.Title, posts.Year, posts.Plot)" ng-disabled="addMovie.$invalid" role="button" href=""
+                            posts.Runtime, posts.Title, posts.Year, posts.Plot, posts.Poster)" ng-disabled="addMovie.$invalid" role="button" href=""
                                >Add To Collection</a>
                         </p>
                         <br>

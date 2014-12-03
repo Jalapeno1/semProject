@@ -32,7 +32,7 @@ function getAllTitles (username, callback){
 };
 
 function addTitle (userName, movId, genre, imdbRating,
-                   runtime, title, year, plot, callback){
+                   runtime, title, year, plot, poster, callback){
     var toAdd = {
         id: movId,
         genre: genre,
@@ -41,6 +41,7 @@ function addTitle (userName, movId, genre, imdbRating,
         title: title,
         year: year,
         plot: plot,
+        poster: poster,
         userRating: 0
     }
     movie.update({userName: userName}, {$push: {"moviesOwned":toAdd}}, function(err, result){

@@ -45,16 +45,23 @@
           <h3>Details</h3>
         </div>
         <div class="panel-body">
-          <div>
-            <h3>Title: {{opened.title}}</h3>
-            <h3>Genre: {{opened.genre}}</h3>
-            <h3>Runtime: {{opened.runtime}}</h3>
-            <h3>Year: {{opened.year}}</h3>
-            <h3>IMDB-rating: {{opened.imdbRating}}</h3>
-            <h3>Your rating: {{opened.userRating}}/5</h3>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-6">
+                <h4><b>Title:</b> {{opened.title}}</h4>
+                <h4><b>Genre:</b> {{opened.genre}}</h4>
+                <h4><b>Runtime:</b> {{opened.runtime}}</h4>
+                <h4><b>Year:</b> {{opened.year}}</h4>
+                <h4><b>IMDB-rating:</b> {{opened.imdbRating}}</h4>
+                <h4><b>Your rating:</b> {{opened.userRating}}</h4>
+              </div>
+              <div class="col-xs-6">
+                <a><img class="img-thumbnail" src="{{opened.poster}}" alt="No Image found"></a>
+              </div>
+            </div>
             <br>
             <div class="well well-sm">
-              <h4 class="text-muted">{{opened.plot}}</h4>
+              <h5 class="text-muted">{{opened.plot}}</h5>
             </div>
             <hr>
           </div>
