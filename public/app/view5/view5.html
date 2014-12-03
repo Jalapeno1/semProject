@@ -18,6 +18,19 @@
                     </form>
                 </div>
             </div>
+            <div>
+                <div class="panel panel-success" ng-show="showBut">
+                    <div class="panel-heading">
+                        <h3></h3>
+                    </div>
+                    <div class="panel-body">
+                        <form name="addMovie">
+                            <a><img class="img-thumbnail" src="{{posts.Poster}}" alt="No Image found"></a>
+                            <br>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-lg-8">
             <div class="panel panel-success" ng-show="showBut">
@@ -33,15 +46,18 @@
                         <h3 ng-model="Runtime">Runtime: {{posts.Runtime}}</h3>
                         <h3 ng-model="Year">Year: {{posts.Year}}</h3>
                         <h3 ng-model="Rating">IMDB-rating: {{posts.imdbRating}}</h3>
+                        <h3 ng-model="Plot">Plot: {{posts.Plot}}</h3>
                         <br>
                         <p>
                             <a id="submit" class="btn btn-success btn-lg" ng-click="saveMovie(posts.imdbID, posts.Genre, posts.imdbRating,
-                            posts.Runtime, posts.Title, posts.Year)" ng-disabled="addMovie.$invalid" role="button" href=""
+                            posts.Runtime, posts.Title, posts.Year, posts.Plot)" ng-disabled="addMovie.$invalid" role="button" href=""
                                >Add To Collection</a>
                         </p>
+                        <br>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+

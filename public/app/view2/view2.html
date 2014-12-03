@@ -21,7 +21,7 @@
           <tbody>
             <tr>
               <td><input class="form-control"
-                         placeholder="Search for Title, Genre or Release Year..."
+                         placeholder="Search for Title, Genre or Year..."
                          type="search" ng-model="filterCont">
                   </input>
               </td>
@@ -52,6 +52,10 @@
             <h3>Year: {{opened.year}}</h3>
             <h3>IMDB-rating: {{opened.imdbRating}}</h3>
             <h3>Your rating: {{opened.userRating}}/5</h3>
+            <br>
+            <div class="well well-sm">
+              <h4 class="text-muted">{{opened.plot}}</h4>
+            </div>
             <hr>
           </div>
           <p></p>

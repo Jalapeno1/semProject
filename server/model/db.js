@@ -83,6 +83,7 @@ var movieSchema = new mongoose.Schema({
       required: true
     },
     year: String,
+    plot: String,
     userRating: Number
   }]
 });

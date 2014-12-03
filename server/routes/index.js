@@ -79,9 +79,10 @@ router.get('/test/allMovies/:user', function(req, res) {
 });
 
 //Adds a movie to collection
-router.post('/test/addtitle/:user/:movId/:genre/:imdbRating/:runtime/:title/:year', function (req, res) {
+router.post('/test/addtitle/:user/:movId/:genre/:imdbRating/:runtime/:title/:year/:plot', function (req, res) {
     facade.addTitle(req.params.user, req.params.movId, req.params.genre,
-        req.params.imdbRating, req.params.runtime, req.params.title, req.params.year, function(err, data){
+        req.params.imdbRating, req.params.runtime, req.params.title, req.params.year, req.params.plot,
+        function(err, data){
             if(err)
                 res.send(err);
             else

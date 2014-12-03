@@ -32,9 +32,10 @@ angular.module('myAppRename.view5', ['ngRoute'])
                 });
         };
             // Adds found title to user's collection
-            $scope.saveMovie = function(Id, Rating, Year, Title, Genre, Runtime){
-                console.log(Id, Title, Genre, Year, Runtime, Rating);
-                var urlStr = '/test/addtitle/test/' + Id + '/' + Rating + '/' + Year + '/' + Title + '/' + Genre + '/' + Runtime +''
+            $scope.saveMovie = function(Id, Rating, Year, Title, Genre, Runtime, Plot, Poster){
+
+                var urlStr = '/test/addtitle/test/' + Id + '/' + Rating + '/' + Year + '/' + Title + '/' + Genre + '/'
+                    + Runtime + '/' + Plot + '';
                 console.log(urlStr);
 
                 $http({

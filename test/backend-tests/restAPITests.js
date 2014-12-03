@@ -39,6 +39,7 @@ describe('REST API for /test', function () {
             runtime: "213min",
             title: "The Test Movie",
             year: '2014',
+            plot: 'nothing',
             userRating: 0
           },
           {
@@ -48,6 +49,7 @@ describe('REST API for /test', function () {
             runtime: "90min",
             title: "Sem Project",
             year: '2012',
+            plot: 'nothing',
             userRating: 0
           }]
         },{userName: "testToDelete",
@@ -58,6 +60,7 @@ describe('REST API for /test', function () {
             runtime: "213min",
             title: "The Test Movie",
             year: '2014',
+            plot: 'nothing',
             userRating: 0
           },
 
@@ -68,6 +71,7 @@ describe('REST API for /test', function () {
             runtime: "90min",
             title: "Sem Project",
             year: '2012',
+            plot: 'nothing',
             userRating: 0
           }]
         }];
@@ -99,7 +103,7 @@ describe('REST API for /test', function () {
 
   it("Should add a title; should return status code 200.", function (done) {
     supertest("http://localhost:"+testPort)
-        .post("/test/addtitle/test/499/Drama/9/666min/randomTitle/2014")
+        .post("/test/addtitle/test/499/Drama/9/666min/randomTitle/2014/something")
         .expect(200)
         .end(function (err, res) {
           if (err)
