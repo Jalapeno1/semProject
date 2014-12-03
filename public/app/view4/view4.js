@@ -8,5 +8,23 @@ angular.module('myAppRename.view4', ['ngRoute'])
         });
     }])
 
-    .controller('View4Ctrl', function() {
-    });
+    .controller('View4Ctrl', function ($scope, $http, $route) {
+        $scope.addUser = function(username, password) {
+
+            var details = {
+                "username": username,
+                "password": password,
+                "authority": "ADMIN"
+            }
+
+
+            $http
+                .post("localhost:8080/", details)
+                .succes(function (data, status) {
+                    $scope.status = status;
+                })
+                .error(function (data, status) {
+                    $scope.error = status;
+                });
+        }
+});
