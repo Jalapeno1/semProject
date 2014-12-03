@@ -7,17 +7,14 @@ angular.module('myAppRename.view4', ['ngRoute'])
             templateUrl: 'app/view4/view4.html'
         });
     }])
-
-    .controller('View4Ctrl', function ($scope, $http, $route) {
+    .controller('View4Ctrl', function ($scope, $http) {
         $scope.addUser = function(username, password) {
-
             var details = {
                 "username": username,
                 "password": password,
-                "authority": "ADMIN"
+                "authority": "USER"
             }
-
-
+            console.log(details);
             $http
                 .post("localhost:8080/", details)
                 .succes(function (data, status) {
