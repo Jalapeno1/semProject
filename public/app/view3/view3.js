@@ -9,23 +9,24 @@ angular.module('myAppRename.view3', ['ngRoute'])
   });
 }])
 
-.controller('View3Ctrl', function ($scope, $http) {
-    $http({
-      method: 'GET',
-      url: 'adminApi/user'
-    }).
-      success(function (data, status, headers, config) {
-        $scope.users = data;
-         $scope.error = null;
-      }).
-      error(function (data, status, headers, config) {
-        if(status == 401){
-          $scope.error ="You are not authenticated to request these data";
-            return;
+    .controller('View3Ctrl', function ($scope, $http) {
+      $scope.addUser = function(username, password) {
+        var details = {
+          "username": username,
+          "password": password,
+          "authority": "USER"
         }
-        $scope.error = data;
-      });
-});
+        console.log(details);
+        $http
+            .post("localhost:8080/login", details)
+            .succes(function (data, status) {
+              $scope.status = status;
+            })
+            .error(function (data, status) {
+              $scope.error = status;
+            });
+      }
+    });
 
 
 

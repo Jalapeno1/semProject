@@ -16,7 +16,7 @@ angular.module('myAppRename.view4', ['ngRoute'])
             }
             console.log(details);
             $http
-                .post("localhost:8080/", details)
+                .post("localhost:8080/login", details)
                 .succes(function (data, status) {
                     $scope.status = status;
                 })

@@ -1,7 +1,15 @@
-<div class="alert alert-danger" role="alert" ng-show="error">{{error}}</div>
-<p>This is the partial for view 3.</p>
-<p>Data is fetched from a REST service, connected to MongoDB </p>
-<ul>
-  <li ng-repeat="user in users"> {{user.userName}} {{user.email}} </li>
-</ul>
-</p>
+<div class="jumbotron" id="div">
+<br>
+<form role="form">
+<div class="form-group"  >
+<label>Username</label>
+<input  ng-model="newusername" class="form-control" placeholder="Enter username">
+</div>
+<div class="form-group">
+<label>Password</label>
+<input type="password" ng-model="newpassword" class="form-control" placeholder="Enter password">
+</div>
+<a class="btn btn-success pull-right " ng-click="addUser(newusername, newpassword)" role="button" href=""
+onclick="document.location.reload(false)">Sign Up</a>
+</form>
+</div>
