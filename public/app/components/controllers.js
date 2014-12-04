@@ -18,7 +18,6 @@ angular.module('myAppRename.controllers', []).
       return window.atob(output); //polifyll https://github.com/davidchambers/Base64.js
     }
 
-
     $scope.title = "Movie Collection";
     $scope.username = "";
     $scope.isAuthenticated = false;
@@ -29,7 +28,7 @@ angular.module('myAppRename.controllers', []).
 
     $scope.submit = function () {
       $http
-        .post('/authenticate', $scope.user)
+        .get('/authenticate', $scope.user)
         .success(function (data, status, headers, config) {
           $window.sessionStorage.token = data.token;
           $scope.isAuthenticated = true;
