@@ -16,10 +16,10 @@ angular.module('myAppRename.view3', ['ngRoute'])
           "password": password,
           "authority": "USER"
         }
-        console.log(details);
+
         $http
-            .post("localhost:8080/login", details)
-            .succes(function (data, status) {
+            .post("http://localhost:8080/login", details)
+            .success(function (data, status) {
               $scope.status = status;
             })
             .error(function (data, status) {
@@ -27,6 +27,3 @@ angular.module('myAppRename.view3', ['ngRoute'])
             });
       }
     });
-
-
-
