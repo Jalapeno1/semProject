@@ -13,8 +13,7 @@ angular.module('myAppRename', [
   'myAppRename.view3',
   'myAppRename.view4',
   'myAppRename.view5',
-  'myAppRename.view6',
-  'myAppRename.index'
+  'myAppRename.view6'
 
 ]).
 config(['$routeProvider', function($routeProvider) {
