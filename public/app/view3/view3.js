@@ -21,15 +21,13 @@ angular.module('myAppRename.view3', ['ngRoute'])
             .post("http://localhost:8080/login", details)
             .success(function (data, status) {
               $scope.status = status;
-              $scope.messageToUser = {
-                  message: "User: " + username + " successfully created!"
-              };
+              $scope.messageToUser = "User: " + username + " successfully created!"
               //$route.reload();
 
             })
             .error(function (data, status) {
               $scope.error = status;
-              //$scope.messageToUser = "User: "+username+" already exist!";
+              $scope.messageToUser = "User: "+username+" already exist!";
             });
       };
     });

@@ -8,29 +8,13 @@ var facade = require("../model/facade")
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.redirect("app/index.html")
+    res.redirect("app/index.html")
 });
 
 
 router.post('/authenticate', function (req, res) {
     //TODO: Go and get UserName Password from "somewhere"
     //if is invalid, return 401
-    //facade.userLogin(req.body.username, req.body.password, function (err, data) {
-    //    if (req.body.username === data.userName) {
-    //        var profile = {
-    //            username: data.userName,
-    //            role: "user",
-    //            id: 1000
-    //        };
-    //        var token = jwt.sign(profile, require("../security/secrets").secretTokenUser, {expiresInMinutes: 60 * 5});
-    //        res.json({token: token});
-    //        return
-    //    }
-    //    else {
-    //        res.status(401).send('Wrong user or password');
-    //        return;
-    //    }
-    //});
     if (req.body.username === 'student' && req.body.password === 'test') {
         var profile = {
             username: 'Bo the Student',
