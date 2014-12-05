@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myAppRename.view2', ['ngRoute'])
+angular.module('myAppRename.view2', ['ngRoute', 'ngProgress'])
 
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/view2', {
@@ -16,6 +16,7 @@ angular.module('myAppRename.view2', ['ngRoute'])
       .success(function (data, status, headers, config) {
           //$scope.collection = data;
           $scope.justMovies = data[0].moviesOwned;
+
       }).
       error(function (data, status, headers, config) {
         if (status == 401) {
@@ -27,6 +28,7 @@ angular.module('myAppRename.view2', ['ngRoute'])
 
       // Deletes a movie from collection
       $scope.deleteMovie = function(Id){
+        ngProgress.start();
         var urlStr = '/test/movie/test/' + Id + '/'
 
         $http({
@@ -35,15 +37,16 @@ angular.module('myAppRename.view2', ['ngRoute'])
         }).
             success(function (data, status) {
               $scope.status = status;
+              ngProgress.complete();
             }).
             error(function (data, status, error) {
               $scope.error = status;
+
             });
       };
 
       // Updates user rating on a title
       $scope.updateRating = function(movieId, rating){
-
         var updateJSON = {
           "user": "test",
           "id": movieId,
@@ -66,6 +69,7 @@ angular.module('myAppRename.view2', ['ngRoute'])
 
       // Handles dynamically changing detail windows
       $scope.open = function(item){
+
         if ($scope.isOpen(item)){
           $scope.opened = undefined;
         } else {

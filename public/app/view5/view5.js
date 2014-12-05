@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myAppRename.view5', ['ngRoute'])
+angular.module('myAppRename.view5', ['ngRoute', 'ngProgress'])
 
     .config(['$routeProvider', function($routeProvider) {
         $routeProvider.when('/view5', {
@@ -9,9 +9,10 @@ angular.module('myAppRename.view5', ['ngRoute'])
         });
     }])
 
-    .controller('View5Ctrl', function ($scope, $http, $route) {
+    .controller('View5Ctrl', function ($scope, $http, $route, ngProgress) {
         // Searches for a movie title
         $scope.getMovie = function(title, year, showIt){
+            ngProgress.start();
             if(showIt==="undefined"){
                 $scope.showBut = false
             } else {
@@ -26,13 +27,18 @@ angular.module('myAppRename.view5', ['ngRoute'])
             }).
                 success(function (data, status, headers, config) {
                     $scope.posts = data;
+                    ngProgress.complete();
                 }).
                 error(function (data, status, headers, config) {
                     $scope.error = data;
+                    ngProgress.complete();
+
                 });
+
         };
             // Adds found title to user's collection
             $scope.saveMovie = function(Id, Rating, Year, Title, Genre, Runtime, Plot, Poster){
+                ngProgress.start();
 
                 var urlJSON = {
                     "user": "test",
@@ -50,10 +56,13 @@ angular.module('myAppRename.view5', ['ngRoute'])
                     .post("/test/addTitle", urlJSON)
                     .success(function (data, status) {
                         $scope.status = status;
+                        ngProgress.complete();
                         $route.reload();
+
                     })
                     .error(function (data, status, error) {
                         $scope.error = status;
+                        
                     });
             }
     });
