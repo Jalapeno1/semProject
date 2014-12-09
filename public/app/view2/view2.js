@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myAppRename.view2', ['ngRoute', 'ngProgress'])
+angular.module('myAppRename.view2', ['ngRoute'])
 
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/view2', {
@@ -8,7 +8,7 @@ angular.module('myAppRename.view2', ['ngRoute', 'ngProgress'])
       controller: 'View2Ctrl'
     });
   }])
-  .controller('View2Ctrl', ['$scope', '$http', function ($scope, $http, $route, ngProgress) {
+  .controller('View2Ctrl', ['$scope', '$http', function ($scope, $http, $route) {
     $http({
       method: 'GET',
       url: '/test/allMovies/test'
@@ -28,7 +28,6 @@ angular.module('myAppRename.view2', ['ngRoute', 'ngProgress'])
 
       // Deletes a movie from collection
       $scope.deleteMovie = function(Id){
-        ngProgress.start();
         var urlStr = '/test/movie/test/' + Id + '/'
 
         $http({
@@ -37,8 +36,7 @@ angular.module('myAppRename.view2', ['ngRoute', 'ngProgress'])
         }).
             success(function (data, status) {
               $scope.status = status;
-              ngProgress.complete();
-            }).
+              }).
             error(function (data, status, error) {
               $scope.error = status;
 

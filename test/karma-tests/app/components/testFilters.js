@@ -3,7 +3,7 @@
 describe('myAppRename.filters', function () {
   beforeEach(module('myAppRename'));
 
-  describe('checkmark', function () {
+  xdescribe('checkmark', function () {
 
     it('should convert boolean values to unicode checkmark or cross',
       inject(function (checkmarkFilter) {
@@ -13,7 +13,7 @@ describe('myAppRename.filters', function () {
   });
 
 
-  describe('filterXXXX', function () {
+  xdescribe('filterXXXX', function () {
 
   })
 });

@@ -1,10 +1,10 @@
 'use strict';
 
-describe('myAppRename.services', function () {
+xdescribe('myAppRename.services', function () {
 
   beforeEach(module('myAppRename.services'));
 
-  describe('InfoService', function () {
+  xdescribe('InfoService', function () {
 
     var infoService;
     beforeEach(inject(function (_InfoService_) {
@@ -17,7 +17,7 @@ describe('myAppRename.services', function () {
   });
 
 
-  describe('XXXService', function () {
+  xdescribe('XXXService', function () {
 
   });
 });

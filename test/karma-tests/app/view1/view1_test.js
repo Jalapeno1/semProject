@@ -1,15 +1,15 @@
 'use strict';
 
-describe('myAppRename.view1 module', function() {
+xdescribe('myAppRename.view1 module', function() {
 
   beforeEach(module('myAppRename.view1'));
 
-  describe('view1 controller', function(){
+  xdescribe('view1 controller', function(){
 
-    it('should ....', inject(function($controller) {
-      //spec body
-      var view1Ctrl = $controller('View1Ctrl');
-      expect(view1Ctrl).toBeDefined();
-    }));
+      it('should ....', inject(function($controller) {
+        //spec body
+        var view1Ctrl = $controller('View1Ctrl');
+        expect(view1Ctrl).toBeDefined();
+      }));
+    });
   });
-});

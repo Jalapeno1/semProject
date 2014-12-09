@@ -1,8 +1,8 @@
-describe('myAppRename.factories', function () {
+xdescribe('myAppRename.factories', function () {
 
   beforeEach(module('myAppRename.factories'));
 
-  describe('InfoFactory', function () {
+  xdescribe('InfoFactory', function () {
     var infoFactory;
     beforeEach(inject(function (_InfoFactory_) {
       infoFactory = _InfoFactory_;
@@ -14,7 +14,7 @@ describe('myAppRename.factories', function () {
   });
 
 
-  describe('XXXFactory', function () {
+  xdescribe('XXXFactory', function () {
 
   });
 });
