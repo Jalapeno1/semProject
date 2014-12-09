@@ -23,7 +23,7 @@ angular.module('myAppRename.view2', ['ngRoute'])
           $scope.error = "You are not authenticated to request these data";
           return;
         }
-        $scope.error = data;
+          $scope.error = "Could not Connect to Database. " + data;
       });
 
       // Deletes a movie from collection
@@ -38,8 +38,7 @@ angular.module('myAppRename.view2', ['ngRoute'])
               $scope.status = status;
               }).
             error(function (data, status, error) {
-              $scope.error = status;
-
+              $scope.error = "Could not Connect to Database.";
             });
       };
 
@@ -58,7 +57,7 @@ angular.module('myAppRename.view2', ['ngRoute'])
               $route.reload();
             })
             .error(function (data, status, error) {
-              $scope.error = status;
+              $scope.error = "Something went wrong, try again.";
             });
       };
 

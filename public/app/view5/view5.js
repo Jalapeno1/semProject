@@ -20,7 +20,6 @@ angular.module('myAppRename.view5', ['ngRoute', 'ngProgress'])
             }
             // Gets data from API
             $http({
-
                 method: 'GET',
                 url: 'http://www.omdbapi.com/?t=' + title +'&y=' + year + '&plot=long&r=json',
                 dataType: 'json'
@@ -30,7 +29,7 @@ angular.module('myAppRename.view5', ['ngRoute', 'ngProgress'])
                     ngProgress.complete();
                 }).
                 error(function (data, status, headers, config) {
-                    $scope.error = data;
+                    $scope.error = "Could not find Movie in Database. ERROR: "+data;
                     ngProgress.complete();
 
                 });
@@ -61,8 +60,8 @@ angular.module('myAppRename.view5', ['ngRoute', 'ngProgress'])
 
                     })
                     .error(function (data, status, error) {
-                        $scope.error = status;
-                        
+                        $scope.error = "Something went wrong. Could not add movie to Collection. ERROR: "+data;
+                        ngProgress.complete();
                     });
             }
     });
