@@ -9,6 +9,7 @@ angular.module('myAppRename.view2', ['ngRoute'])
     });
   }])
   .controller('View2Ctrl', ['$scope', '$http', function ($scope, $http, $route) {
+
     $http({
       method: 'GET',
       url: '/test/allMovies/test'

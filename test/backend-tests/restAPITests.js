@@ -1,4 +1,5 @@
-global.TEST_DATABASE = "mongodb://test:test@ds047050.mongolab.com:47050/mydatabase";
+
+global.TEST_DATABASE = //Insert test database!!!
 global.SKIP_AUTHENTICATION = true;  //Skip security
 
 var should = require("should");
