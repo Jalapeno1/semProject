@@ -93,7 +93,7 @@ describe('REST API for /test', function () {
     testServer.close();
   })
 
-  it("Should get user test's movie collection; 'userName' should equal 'test'.", function (done) {
+  it("Should get user 'test's' movie collection; 'userName' should equal 'test'.", function (done) {
     var testUser = 'test';
     http.get("http://localhost:"+testPort+"/test/allMovies/"+testUser,function(res){
       res.setEncoding("utf8");//response data is now a string
